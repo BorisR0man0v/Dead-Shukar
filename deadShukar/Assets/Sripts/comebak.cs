@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class BioatController : MonoBehaviour
 {
-    public SpriteRenderer
-        spriteRenderer;
-
-    // Start is called before the first frame update
+    public SpriteRenderer spriteRenderer;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
@@ -20,8 +17,19 @@ public class BioatController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.A))
         {
             FlipBoat(true);
-    }
         }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+
+            FlipBoat(false);
+
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            FlipBoat(true);
+        }
+    }
     void FlipBoat(bool facingRight)
     {
         if (facingRight)
