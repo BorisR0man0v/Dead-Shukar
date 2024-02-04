@@ -21,6 +21,11 @@ public class Fish_beginning : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        turn trn = collision.GetComponent<turn>();
+        if (trn != null)
+        {
+            Destroy(gameObject);
+        }
+    
     }
 }

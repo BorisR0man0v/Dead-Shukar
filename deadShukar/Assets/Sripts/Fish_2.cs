@@ -23,17 +23,17 @@ public class Fish_2 : MonoBehaviour
 
         bool rightFish = Random.Range(0, 2) == 0;
 
-        float y = Random.Range(-4f, 0f);
+        float y = Random.Range(-4.59f, 0f);
         float x;
          if (rightFish)
         {
-            x = 11;
+            x = -8;
             fish.GetComponent<Fish_beginning> ().movement.x = -0.4f;
             fish.GetComponent<Transform>().Rotate(0f, 180f, 0f);
         }
         else
         {
-            x = -11;
+            x = -8;
             fish.GetComponent<Fish_beginning>().movement.x = 0.4f;
 
         }
