@@ -30,7 +30,8 @@ public class Fish : MonoBehaviour
     {
         Vector2 newScale = transform.localScale;
         speed = -1;
-        newScale.x = -1;
+        newScale.x = -13;
         transform.localScale = newScale;
     }
+
 }

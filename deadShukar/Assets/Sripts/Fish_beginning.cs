@@ -10,7 +10,7 @@ public class Fish_beginning : MonoBehaviour
     void Start()
     {
        rb = GetComponent<Rigidbody2D>();
-        movement.x = 0.1f;
+        //movement.x = 0.1f;
     }
 
 
@@ -19,13 +19,4 @@ public class Fish_beginning : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed  * Time.fixedDeltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        turn trn = collision.GetComponent<turn>();
-        if (trn != null)
-        {
-            Destroy(gameObject);
-        }
-    
-    }
 }

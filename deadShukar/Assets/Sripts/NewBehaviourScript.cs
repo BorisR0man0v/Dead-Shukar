@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
-    // Start is called before the first frame
+
     void Update()
     {
         float moveHorizontal =

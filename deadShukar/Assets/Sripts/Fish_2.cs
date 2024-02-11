@@ -1,11 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class Fish_2 : MonoBehaviour
 {
     public GameObject _fish;
+
+    public float Ymin = 8;
+    public float Ymax = 3;
+
+    public float Xmean = 15;
+
+    [SerializeField]
+    private Transform _player;
+
     void Start()
     {
        StartCoroutine(createFish());
@@ -23,22 +33,29 @@ public class Fish_2 : MonoBehaviour
 
         bool rightFish = Random.Range(0, 2) == 0;
 
-        float y = Random.Range(-4.59f, 0f);
+        float y = Random.Range(_player.transform.position.y + Ymin, _player.transform.position.y + Ymax);
         float x;
          if (rightFish)
         {
-            x = -8;
+            x = _player.transform.position.y + Xmean;
             fish.GetComponent<Fish_beginning> ().movement.x = -0.4f;
             fish.GetComponent<Transform>().Rotate(0f, 180f, 0f);
         }
         else
         {
-            x = -8;
+            x = _player.transform.position.y - Xmean;
             fish.GetComponent<Fish_beginning>().movement.x = 0.4f;
-
         }
         fish.GetComponent<Transform>().position =new Vector3(x,y,1);
         StartCoroutine(createFish());
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        turn trn = collision.GetComponent<turn>();
+        if (trn != null)
+        {
+            Destroy(gameObject);
+        }
 
+    }
 }
