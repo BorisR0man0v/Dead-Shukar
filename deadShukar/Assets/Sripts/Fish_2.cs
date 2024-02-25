@@ -49,13 +49,5 @@ public class Fish_2 : MonoBehaviour
         fish.GetComponent<Transform>().position =new Vector3(x,y,1);
         StartCoroutine(createFish());
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        turn trn = collision.GetComponent<turn>();
-        if (trn != null)
-        {
-            Destroy(gameObject);
-        }
 
-    }
 }
