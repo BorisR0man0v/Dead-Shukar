@@ -11,15 +11,16 @@ public class turn : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            instantiate (enemy);
+            Instantiate(enemy);
         }
     }
 
 
     void OnCollisionEntwer2D(Collider2D collision)
     {
-      if (collision.gameObject.tag == "Missile")
+        if (collision.gameObject.tag == "Missile")
         {
-            Detroy(gameObject, .5f);
+            Destroy(gameObject, .5f);
         }
     }
+}
