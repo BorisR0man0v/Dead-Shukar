@@ -5,6 +5,9 @@ public class Fish_2 : MonoBehaviour
 {
     public GameObject _fish;
 
+    [SerializeField]
+    private GameObject[] _fishes;
+
     public float Ymin = 8;
     public float Ymax = 3;
 
@@ -27,7 +30,8 @@ public class Fish_2 : MonoBehaviour
     private IEnumerator createFish()
     {
         yield return new WaitForSeconds(Random.Range(1f, 4f));
-        GameObject fish = Instantiate(_fish);
+
+        GameObject fish = Instantiate(_fishes[Random.Range(0, _fishes.Length)]);
 
         bool rightFish = Random.Range(0, 2) == 0;
 
