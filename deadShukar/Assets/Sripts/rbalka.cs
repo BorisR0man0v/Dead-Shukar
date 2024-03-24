@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class rbalka : MonoBehaviour
 {
-    public int _s = 0;
+    public int _s = 1;
     void Start()
     {
         
@@ -18,16 +18,16 @@ public class rbalka : MonoBehaviour
             Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
-            if (worldPosition.y + _s < 0.4f && worldPosition.y + _s > 0)
-            transform.position = new Vector3(transform.position.x, worldPosition.y + _s, 1);
+            if (worldPosition.y + _s < -1f && worldPosition.y + _s > -4f)
+            transform.position = new Vector3(transform.position.x, worldPosition.y + _s, 1f);
         }
         else if (Input.touchCount > 0)
         {
-            Vector2 touch = Input.mousePosition;
-            Vector2 touchPosition = Camera.main.ScreenToWorldPoint(touch);
+            Touch touch = Input.GetTouch(0);
+            Vector2 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
 
-            if (touchPosition.y + _s < 0.4f && touchPosition.y + _s > 0)
-                transform.position = new Vector3(transform.position.x, touchPosition.y + _s, 1);
+            if (touchPosition.y + _s < -1f && touchPosition.y + _s > -4f)
+                transform.position = new Vector3(transform.position.x, touchPosition.y + _s, 1f);
         }
     }
 }
